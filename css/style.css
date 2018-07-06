@@ -18,6 +18,39 @@ dalszej czesci kodu poprzez - color: var(--color); */
 body {
     font-family: 'Raleway', sans-serif; 
 }
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; 
+}
+
+/* ukywa tekst labeli ale jest widoczny dla czytnikow */
+.section-title {
+    font-size: 22px;
+    color: #575757;
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 45px;
+}
+
+.section-title:after {
+    height: 8px;
+    width: 320px;
+    content: "";
+    background: var(--color);
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
 
 /*----------------------------------------------*/
 /*Nagłówek strony */
@@ -27,6 +60,8 @@ body {
 .page-header{
     height: 40px;
     background: #000;
+    position: relative;
+    z-index: 1000;
 }
 
 .page-header .container{
@@ -62,6 +97,7 @@ body {
 .page-nav-list li {
     position: relative;
 }
+
 .page-nav-list a {
     color: #fff;
     text-transform: uppercase;
@@ -70,6 +106,8 @@ body {
     padding: 10px 28px;
     display: block;
 }
+
+
 
 .page-nav-list a:hover {
     color: var(--color);
@@ -84,7 +122,26 @@ body {
     left: 50%;
     transform: translate(-50%, 0);
     padding: 10px 0px;
+    visibility: hidden;
+    transition: 0.5s all;
 }
+
+.page-nav-list li:hover .page-nav-sublist {
+    opacity: 1;
+    visibility: visible;
+}
+
+.page-nav-sublist:after {
+    content: "";
+    width: 100%;
+    height: 25px;
+    background: transparent;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -25px;
+}
+
 .page-nav-sublist:before {
     content: "";
     display: block;
@@ -103,4 +160,201 @@ body {
     font-weight: normal;
     text-transform: none;
     padding: 5px 20px;
+}
+
+/*----------------------------------------------*/
+/*Banner */
+/*----------------------------------------------*/
+
+.main-banner {
+    background-image: linear-gradient(#fff, #ddd);
+}
+
+.container {}
+
+.banner {
+    height: 500px;
+    display: flex;
+}
+.banner-prev, 
+.banner-next {
+    width: 90px;
+    color: var(--color);
+    font-size: 70px;
+    background: none;
+    border: 0;
+    transition: 0.5s all;
+    cursor: pointer;
+}
+
+.banner-prev:focus, 
+.banner-next:focus {
+    outline: none; /*po najechaniu tabulatorem nie robi sie niebieska ramka */
+}
+.banner-prev:hover, 
+.banner-next:hover {
+    color: black;
+}
+
+.banner-next {
+    order:1; /* zmienia kolejnosc w flex boxie */
+}
+
+
+.banner-sliders {
+    flex-grow:1;
+    position: relative;
+    
+}
+
+.banner-slide {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 200px;
+    opacity: 0;
+    transition: 0.7s opacity;
+}
+
+.banner-slide-actives {
+    opacity: 1;
+    z-index: 1;
+}
+
+/*----------------------------------------------*/
+/*Nagłówek strony */
+/*----------------------------------------------*/
+
+.main-contact{
+    
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+}
+.form-left {
+    width: 690px;
+}
+
+.form-right {
+    width: 340px;
+}
+.form-row {
+    margin-bottom: 29px;
+}
+
+.form-image {
+    height: 190px;
+    background: url(../images/red_chair.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: -20px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.form-image:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 7px;
+    background: linear-gradient(transparent, #fff);
+}
+
+.form label {}
+
+.form input[type="text"],
+.form input[type="email"],
+.form textarea {
+    height: 66px;
+    border: 1px solid var(--color);
+    padding:0 15px;
+    width: 100%;
+    font-size: 33px;
+    font-weight: 300;
+    color: #333;
+    transition: 0.4s all;
+}
+
+.form textarea {
+    height: 180px;
+    padding: 15px;
+    resize: none;
+}
+
+.form input[type="text"]::placeholder,
+.form input[type="email"]::placeholder,
+.form textarea::placeholder {
+    color: #ddd;
+}
+
+.form input[type="text"]:focus,
+.form input[type="email"]:focus,
+.form textarea:focus {
+    outline: none;
+    box-shadow:inset 0 0 0 2px var(--color);
+}
+
+.form-checkbox {
+    display: flex;
+    color: #aaa;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+
+}
+.form-checkbox input {
+    position: absolute;
+    left:0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+}
+
+.form-checkbox input + span {
+    flex-shrink: 0;
+    margin-right: 10px;
+    display: block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid var(--color);
+    position: relative;
+}
+.form-checkbox input + span:after {
+    content: "";
+    background: url(../images/form_ok.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    transition: 0.5s all;
+}
+.form-checkbox input:checked + span:after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.form .button {
+    height: 70px;
+    border-radius: 8px;
+    border:0;
+    width: 100%;
+    font-size: 34px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    background: var(--color);
+    margin-top: 10px;
+    
 }

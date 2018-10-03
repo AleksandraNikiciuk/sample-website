@@ -1,0 +1,34 @@
+
+/*-----------------------------*/
+/* Footer                      */
+/*-----------------------------*/
+
+.footer-left {
+  width: 690px;
+  float: left;
+  padding: 20px 0;
+  p {
+    color: #c3c3c3;
+  };
+};
+
+.footer-right {
+  width: 340px;
+  float: right;
+  .img {
+    padding: 20px 0;
+    float: left;
+  };
+  .logo {
+    float: right;
+    padding: 20px 0;
+    margin: 0;
+    .logo-link {
+      color: #c3c3c3;
+      font-size: 15px;
+      font-weight: 400;
+      text-transform: uppercase;
+      text-decoration: none;
+    };
+  };
+};

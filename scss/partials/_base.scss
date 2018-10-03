@@ -1,0 +1,53 @@
+:root {
+  --color: #24baa0;
+}
+
+/* zmienna, mozemy sie do niej odwoływac w
+dalszej czesci kodu poprzez - color: var(--color); */
+
+
+*{
+  box-sizing: border-box;
+}
+
+.container {
+  width: 1050px;
+  margin: 0 auto;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+/* ukywa tekst labeli ale jest widoczny dla czytnikow */
+.section-title {
+  font-size: 22px;
+  color: #575757;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 45px;
+}
+
+.section-title:after {
+  height: 8px;
+  width: 320px;
+  content: "";
+  background: var(--color);
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}

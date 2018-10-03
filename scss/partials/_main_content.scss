@@ -40,6 +40,10 @@
       top: 150px;
       z-index: 9;
     };
+    &:hover .section-title,
+    &:hover:after{
+      visibility: hidden;
+    };
     &:after {
       content: "";
       display: block;

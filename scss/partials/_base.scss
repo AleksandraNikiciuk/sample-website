@@ -18,6 +18,8 @@ dalszej czesci kodu poprzez - color: var(--color); */
 body {
   font-family: 'Raleway', sans-serif;
 }
+
+/* ukywa tekst labeli ale jest widoczny dla czytnikow */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -30,7 +32,7 @@ body {
   white-space: nowrap;
 }
 
-/* ukywa tekst labeli ale jest widoczny dla czytnikow */
+/*Title headers with blue line*/
 .section-title {
   font-size: 22px;
   color: #575757;
